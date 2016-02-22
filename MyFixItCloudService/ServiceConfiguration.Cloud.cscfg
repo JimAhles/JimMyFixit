@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="MyFixIt.WorkerRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName={StorageAccountName};AccountKey={StorageAccountAccessKey}" />
+      <Setting name="CloudExtensionsDir" value=" &lt;CloudExtensionsDir Condition=&quot; '$(CloudExtensionsDir)' == '' &quot;&gt;$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v12.0\Windows Azure Tools\2.3\&lt;/CloudExtensionsDir&gt;" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

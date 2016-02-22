@@ -1,0 +1,35 @@
+﻿@model MyFixIt.Models.Dog
+<h3>Dog Details</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd>@Html.DisplayFor(model => model.Name)</dd>
+        <dt>@Html.DisplayNameFor(model => model.BirthDate)</dt>
+        <dd>@Html.DisplayFor(model => model.BirthDate)</dd>
+    </dl>
+</div>
+@Ajax.ActionLink(linkText: "Call An Action",
+                    actionName: "Bark",
+                    ajaxOptions: new AjaxOptions
+                    {
+                        UpdateTargetId = "ajaxtarget",
+                        InsertionMode = InsertionMode.InsertAfter
+                    })
+
+<div id="ajaxtarget"></div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+        $("#btnSubmit").click(function () {
+            jQuery.ajax({
+                type: "GET",
+                url: "/Dog/CatDog",
+                success: function (data) { alert(data.message); },
+                failure: function (errMsg) {
+                  alert(errMsg + "asdf");
+                }
+           });
+        });
+    });
+</script>
+<input type="button" value="Click" id="btnSubmit" />

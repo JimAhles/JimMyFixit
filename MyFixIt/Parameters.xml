@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--?xml version="1.0" encoding="utf-8" ?-->
+<parameters>
+  <parameter description="Please enter storage name" name="StorageAccountName" tags="" defaultvalue="__STORAGEACCOUNT__">
+    <parameterentry match="/configuration/appSettings/add[@key='StorageAccountName']/@value" scope="\\web.config$" kind="XmlFile">
+    </parameterentry>
+  </parameter>
+  <parameter description="Please enter storage access key" name="StorageAccountAccessKey" tags="" defaultvalue="__STORAGEACCESSKEY__">
+    <parameterentry match="/configuration/appSettings/add[@key='StorageAccountAccessKey']/@value" scope="\\web.config$" kind="XmlFile">
+    </parameterentry>
+  </parameter>
+</parameters>
